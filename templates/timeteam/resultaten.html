@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Loting</h1>
+{% for race in races %}
+<h2>{{race}}</h2>
+<span class="font-italic text-muted">@{{race.wedstrijdbaan}} ({{race.wedstrijdbaan.locatie}})</span>
+<h5>{{race.promotie_code}}</h5>
+<div class="table-responsive">
+<table class="table table-sm table-striped mb-5">
+	<thead>
+		<tr>
+			<th scope="col">Pos.</th>
+			<th scope="col">Coureur</th>
+			<th scope="col">1e split</th>
+			<th scope="col">2e split</th>
+			<th scope="col">3e split</th>
+			<th scope="col">4e split</th>
+			<th scope="col">Totaal</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for plek in race.plekken %}
+		<tr>
+			<td>[{{forloop.counter}}]</td>
+			<td>{{plek.coureur}}</td>
+			<td>{% if plek.resultaat.split1 != None %}{{plek.resultaat.split1}}{% else %}-{% endif %}</td>
+			<td>{% if plek.resultaat.split2 != None %}{{plek.resultaat.split2}}{% else %}-{% endif %}</td>
+			<td>{% if plek.resultaat.split3 != None %}{{plek.resultaat.split3}}{% else %}-{% endif %}</td>
+			<td>{% if plek.resultaat.split4 != None %}{{plek.resultaat.split4}}{% else %}-{% endif %}</td>
+			<td>{% if plek.totaal >= 0 %}{{plek.totaal}}{% else %}-{% endif %}</td>
+		</tr>
+		{% empty %}
+			<tr>
+				<td colspan='7'> <span class="font-italic">Nog niet bekend</spam> </td>
+			</tr>
+		{% endfor %}
+		
+	</tbody>	
+</table>
+</div>
+{% endfor %}
+
+{% endblock content %}

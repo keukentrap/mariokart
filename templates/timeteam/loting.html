@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Loting</h1>
+{% for race in races %}
+<h2>{{race}}</h2>
+<span class="font-italic text-muted">@{{race.wedstrijdbaan}} ({{race.wedstrijdbaan.locatie}})</span>
+<h5>{{race.promotie_code}}</h5>
+<div class="table-responsive">
+<table class="table table-sm table-striped mb-5">
+	<thead>
+		<tr>
+			<th scope="col">Baan</th>
+			<th scope="col">Coureur</th>
+			<th scope="col">Rugnummer</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for coureur in race.deelnemers.all %}
+		<tr>
+			<td>[{{forloop.counter}}]</td>
+			<td>{{coureur}}</td>
+			<td>[{{coureur.rugnummer}}]</td>
+		</tr>
+		{% empty %}
+			<tr>
+				<td> <span class="font-italic">Nog niet bekend</spam> </td>
+				<td></td>
+				<td></td>
+			</tr>
+		{% endfor %}
+		
+	</tbody>	
+</table>
+</div>
+{% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Mario Kart Toernooi Zwaar 2019</h1>
+
+{# <p><strong>Wedstrijdbepalingen Mario Kart toernooi</strong></p> #}
+<h2>Wedstrijdbepalingen</h2>
+
+<p>Wedstrijd datum: 20 December 2018</br>
+Wedstrijdbaan: Koninginnelaan 70, 6542 ZV Nijmegen</p>
+
+<h3>Hoofd van de Jury:</h3>
+<p>Dhr. W. D. Mulder</p>
+<p>Dhr. A.R. Van Rossen </p>
+
+<h3>Wedstrijdleider:</h3>
+<p>Mevr. R. Stevens</p>
+<p><span id="anchor"></span></p>
+<h3>Bepalingen</h3>
+
+<ul>
+<li class="my-2">De moeilijkheidsgraad is op beide consoles is ingesteld op Hard. </li>
+<li class="my-2">Niet opkomen dagen betekent een boete die wordt afgestemd op het humeur van de wedstrijdleiding.</li>
+<li class="my-2">Bij hevige weersomstandigheden treedt het fairness protocol in werking. In het uiterste geval wordt er in waaiervorm gestart.</li>
+<li class="my-2">Er worden vier races per grand prix gereden. </li>
+<li class="my-2">Bij het behalen van een ex aequo norm behoudt de wedstrijdleiding het recht tot het inlassen van een rerace. </li>
+<li class="my-2">De rugnummers kunnen worden afgehaald bij de wedstrijdleiding, tegen inlevering van een Pokémon kaart. </li>
+<li class="my-2">De rugnummers dienen ten alle tijden zichtbaar gedragen te worden.</li>
+<li class="my-2">De wedstrijdleiding is niet aansprakelijk voor het verlies van eergevoel. </li>
+<li class="my-2">Schelden, vloeken en handgebaren maken is ten alle tijden toegestaan en wordt door de wedstrijdleiding aangemoedigd.</li>
+<li class="my-2">Bezwaar maken is op geen enkele manier mogelijk.</li>
+<li class="my-2">De uitslagen per race kunnen via een foto worden doorgegeven aan de wedstrijdleiding.</li>
+<li class="my-2">De winnaar wordt bepaald door het rijden van een A-Finale. Zowel de A als de B finale worden over vier banen verreden. </li>
+{% for bepaling in bepalingen %}
+<li> {{bepaling}} </li>
+{% endfor %}
+</ul>
+
+
+
+
+
+{% endblock content %}
